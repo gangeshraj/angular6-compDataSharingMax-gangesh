@@ -5,7 +5,9 @@
     <!-- <input type="text" class="form-control" [(ngModel)]="newServerName"> -->
     <input type="text" 
         class="form-control" 
-        #serverNameInput>
+        #serverNameInput
+        [(ngModel)]="newServerName"
+        >
     <label>Server Content</label>
     <input type="text" class="form-control" [(ngModel)]="newServerContent">
     <br>

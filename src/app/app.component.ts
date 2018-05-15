@@ -17,7 +17,7 @@ export class AppComponent {
   }
 
   onBlueprintAdded(serverData:{serverName:string,serverContent:string}) {
-    console.log(serverData);
+
     this.serverElements.push({
       type: 'blueprint',
       name: serverData.serverName,
@@ -25,6 +25,14 @@ export class AppComponent {
     });
   }
 
+
+  onChangeFirst(){
+    this.serverElements[0].name="Changed!";
+  }
+
+  onDestroyFirst(){
+    this.serverElements.splice(0,1);
+  }
 
   
 }

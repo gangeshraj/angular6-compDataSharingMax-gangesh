@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ViewEncapsulation, 
         OnChanges, SimpleChanges,DoCheck,AfterContentInit, 
         AfterContentChecked, AfterViewInit, AfterViewChecked, 
-        OnDestroy, ViewChild, ElementRef} from '@angular/core';
+        OnDestroy, ViewChild, ElementRef, ContentChild} from '@angular/core';
 
 @Component({
   selector: 'app-server-element',
@@ -15,6 +15,9 @@ DoCheck,AfterContentInit,AfterContentChecked,AfterViewInit,AfterViewChecked,OnDe
   @Input('elementAliasName') element:{type:string,name:string,content:string};
   @Input() name:string;
   @ViewChild('heading') header:ElementRef;
+  @ContentChild('contentParagraph') paragraph:ElementRef;
+
+
   constructor() {
     console.log("server-element constructor called!");
    }
@@ -28,6 +31,7 @@ DoCheck,AfterContentInit,AfterContentChecked,AfterViewInit,AfterViewChecked,OnDe
   ngOnInit() {
     console.log("server-element onInit called!")
     console.log("text Content : "+this.header.nativeElement.textContent);
+    console.log("text Content from parent : "+this.paragraph.nativeElement.textContent);
   }
 
   ngDoCheck(){
@@ -37,19 +41,27 @@ DoCheck,AfterContentInit,AfterContentChecked,AfterViewInit,AfterViewChecked,OnDe
 
   ngAfterContentInit(){
     console.log("server-element ngAfterContentInit called!")
+    console.log("text Content : "+this.header.nativeElement.textContent);
+    console.log("text Content from parent : "+this.paragraph.nativeElement.textContent);
   }
 
   ngAfterContentChecked(){
     console.log("server-element ngAfterContentChecked called!");
+    console.log("text Content : "+this.header.nativeElement.textContent);
+    console.log("text Content from parent : "+this.paragraph.nativeElement.textContent);
+    
   }
 
   ngAfterViewChecked(){
-    console.log("server-element ngAfterViewChecked called!");
+    console.log("server-element ngAfterViewChecked is called!");
+    console.log("text Content : "+this.header.nativeElement.textContent);
+    console.log("text Content from parent : "+this.paragraph.nativeElement.textContent);
   }
 
   ngAfterViewInit(){
     console.log("server-element ngAfterViewInit called!");
     console.log("text Content : "+this.header.nativeElement.textContent);
+    console.log("text Content from parent : "+this.paragraph.nativeElement.textContent);
   }
 
   ngOnDestroy(){
